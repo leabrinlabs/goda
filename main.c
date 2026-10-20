@@ -25,7 +25,7 @@
 #include <pthread.h>
 #include <time.h>
 #define PORT 9134
-#define FL_VERSION "0.6.12-explorer-artwork"
+#define FL_VERSION "0.6.13-library-status"
 static uint64_t runtime_started_us,runtime_next_us;
 static volatile sig_atomic_t stopping;
 static pthread_mutex_t state_lock=PTHREAD_MUTEX_INITIALIZER;

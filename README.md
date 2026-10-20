@@ -11,9 +11,13 @@ Browse and launch extracted PS4 games from folders. Extract supported PKGs direc
 - Game identity read from `sce_sys/param.sfo`; folder names are unrestricted.
 - Global launch path with read-only mounts and dynamic module matching; no per-game behavior database.
 - Persistent error dialogs with optional codes and technical details.
+- A cover-first library: operation status stays in the sidebar, extraction progress stays on the PKG page.
+
+## Download
+Get the ready-to-run ELF or the bundle from [GitHub Releases](https://github.com/leabrinlabs/goda/releases). Source archives alone are not console programs.
 
 ## Use
-1. Start the required jailbreak/kstuff environment and run `goda-v0.6.12.elf` through your ELF loader.
+1. Start the required jailbreak/kstuff environment and run `goda-v0.6.13.elf` through your ELF loader.
 2. In **Settings**, select the parent folder containing your extracted games. Each game needs `eboot.bin` and `sce_sys/param.sfo`.
 3. Select a game and press **Play**, or use **PKG’den çıkar** to extract a supported package to a new folder.
 
@@ -21,8 +25,8 @@ On a fresh start, Goda looks for a standard `PS4` folder on supported storage, t
 
 Goda does not overwrite source game files or access saves. The launcher must remain running while it manages a folder game.
 
-## Compatibility — alpha 0.6.12
-Currently targets **PS5 firmware 13.60**, with limited game testing. Universal game or firmware compatibility is not claimed. Intermittent console shutdowns remain under investigation; automatic system-browser dismissal is unresolved.
+## Compatibility — alpha 0.6.13
+Currently targets **PS5 firmware 13.60**, with limited game testing. Universal game or firmware compatibility is not claimed. Intermittent console shutdowns remain under investigation; automatic system-browser dismissal is unresolved. **PS4 trophy registration can fail with `0x80551618`; this release does not fix trophies.** See [trophy investigation](docs/TROPHIES.md).
 
 Extraction supports **zero-passcode PS4 fPKG base games and updates in supported PFS/PFSC layouts**. PS5 packages, retail/nonzero-passcode packages and DLC are unsupported. Updates are extracted separately, not applied automatically.
 
@@ -37,7 +41,7 @@ make PS5_PAYLOAD_SDK=/path/to/ps5-payload-sdk
 make host PS5_PAYLOAD_SDK=/path/to/ps5-payload-sdk
 ```
 
-Outputs: `dist/goda-v0.6.12.elf` and `dist/loader-host`. With no live preview using port 9134, run `python3 tests/test_app.py` for host integration checks.
+Outputs: `dist/goda-v0.6.13.elf` and `dist/loader-host`. `make panel` builds the optional `dist/goda-shortcut.elf` media shortcut installer; run it with Goda idle, no game open and other mount/launcher services stopped. Start the main ELF first; the shortcut opens its running UI. With no live preview using port 9134, run `python3 tests/test_app.py` for host integration checks.
 
 ## License
 Goda code is GPL-3.0-or-later; third-party files retain their licenses. See [LICENSE](LICENSE) and [third-party notices](THIRD_PARTY_NOTICES.md). Independent homebrew; not affiliated with Sony. No games, game assets or proprietary SDK files are included.

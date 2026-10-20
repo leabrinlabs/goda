@@ -68,3 +68,5 @@ assets.h
 !assets/brand-face.png
 !assets/selection.png
 !assets/launch.png
+
+!tests/test_ui_status.mjs

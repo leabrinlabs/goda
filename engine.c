@@ -172,7 +172,7 @@ int fl_launch(const struct fl_game *input,fl_progress progress){
  newroot=newmeta=newpriv=0;
  if(rc<0){char message[192];snprintf(message,sizeof(message),"Baslatma istegi reddedildi (0x%08x). Oyun dosyalari degistirilmedi.",(unsigned)rc);progress(message);goto done;}
  for(unsigned i=0;i<40;i++){pid_t pid=game_pid();if(pid>0){app_info_t info={0};if(!sceKernelGetAppInfo(pid,&info)&&!strcmp(info.title_id,selected.id)){
-    progress("Oyun sureci basladi; acilista kapanma olup olmadigi izleniyor...");
+    progress("Oyun aciliyor...");
     struct fl_launch_observation observation={.pid=pid};int observed=0;
     for(unsigned tick=0;tick<240;tick++){
      usleep(250000);pid_t candidate=(pid_t)observation.pid;int sample=1;app_info_t current={0};
@@ -184,17 +184,17 @@ int fl_launch(const struct fl_game *input,fl_progress progress){
      if(observed==1){pid=(pid_t)observation.pid;break;}
      if(observed==-1){
       fl_audit("launch","observed_exit_before_settlement title=%s pid=%d exit_reason_unclassified=1 auto_ui_reopen=0",selected.id,(int)observation.pid);
-      progress("Oyun sureci baslangic izlemesi tamamlanmadan kapandi. Kapatma veya cokme ayrimi gunlukten denetlenmeli.");result=FL_LAUNCH_OBSERVED_EXIT;goto done;
+      progress("Oyun kapandi.");result=FL_LAUNCH_OBSERVED_EXIT;goto done;
      }
-     if(observed<0){progress("Oyun sureci veya uygulama kimligi guvenle dogrulanamadi; yeni baslatma istegi gonderilmedi.");goto done;}
+     if(observed<0){fl_audit("launch","observation_identity_unconfirmed title=%s result=%d",selected.id,observed);progress("Oyun acilamadi.");goto done;}
     }
-    if(observed!=1){progress("Oyun sureci kararliligi zaman sinirinda dogrulanamadi; yeniden baslatma istegi gonderilmedi.");goto done;}
+    if(observed!=1){fl_audit("launch","observation_timeout title=%s pid=%d",selected.id,(int)observation.pid);progress("Oyun zamaninda acilmadi. PS5 ekranini kontrol edin.");goto done;}
     app_info_t settled={0};
-    if(sceKernelGetAppInfo(pid,&settled)||strcmp(settled.title_id,selected.id)||settled.app_id!=info.app_id){progress("Oyun kimligi degisti; odak istegi gonderilmedi.");goto done;}
+    if(sceKernelGetAppInfo(pid,&settled)||strcmp(settled.title_id,selected.id)||settled.app_id!=info.app_id){progress("Baska bir oyun acildi; islem durduruldu.");goto done;}
     fl_audit("launch","settled title=%s pid=%d app_id=0x%08x duplicate_launch_requests=0",selected.id,(int)pid,settled.app_id);
-    progress("Oyun sureci dogrulandi. Pencere gecisinin gorsel sonucu konsolda ayrica dogrulanmali.");result=0;goto done;
+    progress("Oyun acik.");result=0;goto done;
    }}usleep(250000);}
- progress("Baslatma istegi gonderildi; oyun sureci henuz dogrulanamadi. Tekrar Baslat'a basmadan PS5 ekranini kontrol edin.");
+ progress("Oyun aciliyor. PS5 ekranini kontrol edin.");
  done:
  if(lifecycle)fl_lifecycle_dispatched();
  if(result&&game_pid()==0){
