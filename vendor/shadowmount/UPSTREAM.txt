@@ -1,0 +1,6 @@
+ShadowMountPlus 1.7-beta5fix1, GPL-3.0
+https://github.com/drakmor/ShadowMountPlus/tree/1.7-beta5fix1
+Derived modules: lifecycle hooks, firmware offsets, remote memory access, assembly bridge.
+Local modifications: dedicated socket/protocol, per-thread launch matching, abort-on-error bridge, no title installation hook, no foreign bridge recovery.
+
+Only headers required by Goda native build targets are included; unused UI, locale and storage-management headers have been omitted. Upstream license retained.

@@ -1,0 +1,27 @@
+{
+  "panel/icon0.png": {
+    "sha256": "1e656cb60c1aa7aeca95128fc26b3fc27c12ef32a2a8cfb7e5df9b5ea6eb4621",
+    "role": "compact",
+    "size": 320550
+  },
+  "assets/brand-compact.png": {
+    "sha256": "7a1f5aa810bf16b0edcff9e510b200fef473d07654de13ecdce0b6522ce7abcb",
+    "role": "compact",
+    "size": 29150
+  },
+  "assets/brand-face.png": {
+    "sha256": "c37812496789c125da71b222a85e202bdeebacc8221cc8151f61fe5a9ad98972",
+    "role": "micro",
+    "size": 4888
+  },
+  "assets/selection.png": {
+    "sha256": "f5e2ced8e78a66633debac6b2f8829ac7cca2e6171786eec650afb80c9f64660",
+    "role": "selection",
+    "size": 1774306
+  },
+  "assets/launch.png": {
+    "sha256": "b158a3c0df80154e6ce612fed1b8356f405bbb7dce2d9f7c0418740cdbaaad01",
+    "role": "launch",
+    "size": 1812178
+  }
+}
