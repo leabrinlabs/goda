@@ -1,5 +1,5 @@
 /* Offline boundary checks; no network, credentials or console access. */
-#include "../http_policy.h"
+#include "../src/http_policy.h"
 #include <assert.h>
 #include <stdio.h>
 static int allowed(const char *s){const char *end=strstr(s,"\r\n\r\n");assert(end);return fl_http_local_request(s,end);}

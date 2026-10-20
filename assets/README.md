@@ -2,7 +2,7 @@
 
 Selected unmodified exports from the user-provided Goda PNG set v1.0. Only assets used by the application are included; masters, duplicate sizes and previews stay outside the project.
 
-- `panel/icon0.png`: compact 512 × 512 opaque RGBA application icon.
+- `icon0.png`: compact 512 × 512 opaque RGBA application icon.
 - `brand-compact.png`: 128 px sidebar branding.
 - `brand-face.png`: 48 px micro mark/favicon.
 - `selection.png`: Full HD web-UI library background.

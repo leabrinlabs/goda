@@ -1,7 +1,8 @@
 from pathlib import Path
-r=Path(__file__).resolve().parent
+r=Path(__file__).resolve().parents[1]
 names=['brand-compact','brand-face','selection','launch']
-with (r/'assets.h').open('w') as out:
+(r/'build/generated').mkdir(parents=True,exist_ok=True)
+with (r/'build/generated/assets.h').open('w') as out:
  out.write('/* Generated from the selected Goda PNG assets. */\n#include <stddef.h>\n')
  for i,name in enumerate(names):
   b=(r/'assets'/f'{name}.png').read_bytes();assert b[:8]==b'\x89PNG\r\n\x1a\n' and len(b)<=2*1024*1024

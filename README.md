@@ -1,4 +1,4 @@
-<img src="panel/icon0.png" width="88" alt="Goda icon">
+<img src="assets/icon0.png" width="88" alt="Goda icon">
 
 # Goda
 **PS4 Folder Launcher for PS5**
@@ -33,15 +33,17 @@ Extraction supports **zero-passcode PS4 fPKG base games and updates in supported
 Extraction checks structure, identity, safe paths, free space and output SHA256 readback. Existing folders are not overwritten; incomplete outputs are excluded from the library. Sony signatures and signed PFS block authenticity are not verified.
 
 ## Build
+Repository layout and host tests: [development guide](docs/DEVELOPMENT.md).
+
 Install [PS5 Payload SDK v0.44](https://github.com/ps5-payload-dev/sdk), then:
 
 ```sh
 make PS5_PAYLOAD_SDK=/path/to/ps5-payload-sdk
 # Optional PC preview, without console launch support:
-make host PS5_PAYLOAD_SDK=/path/to/ps5-payload-sdk
+make host
 ```
 
-Outputs: `dist/goda-v0.6.13.elf` and `dist/loader-host`. `make panel` builds the optional `dist/goda-shortcut.elf` media shortcut installer; run it with Goda idle, no game open and other mount/launcher services stopped. Start the main ELF first; the shortcut opens its running UI. With no live preview using port 9134, run `python3 tests/test_app.py` for host integration checks.
+Outputs: `dist/goda-v0.6.13.elf` and `dist/loader-host`. `make panel` builds the optional `dist/goda-shortcut.elf` media shortcut installer; run it with Goda idle, no game open and other mount/launcher services stopped. Start the main ELF first; the shortcut opens its running UI. With no local preview using port 9134, run `make test` for synthetic host tests.
 
 ## License
 Goda code is GPL-3.0-or-later; third-party files retain their licenses. See [LICENSE](LICENSE) and [third-party notices](THIRD_PARTY_NOTICES.md). Independent homebrew; not affiliated with Sony. No games, game assets or proprietary SDK files are included.

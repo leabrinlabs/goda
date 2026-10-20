@@ -21,10 +21,10 @@ def main():
  for name in paths:
   p=ROOT/name
   if not p.exists():continue
-  if p.is_symlink() or p.suffix.lower() in BLOCKED or any(x in p.parts for x in ('dist','__pycache__')):
+  if p.is_symlink() or p.suffix.lower() in BLOCKED or any(x in p.parts for x in ('build','dist','__pycache__')):
    issues.append((name,'private/generated artifact'));continue
   if p.suffix.lower()=='.png':
-   if name not in {'panel/icon0.png','assets/brand-compact.png','assets/brand-face.png','assets/selection.png','assets/launch.png'}:issues.append((name,'unapproved image asset'))
+   if name not in {'assets/icon0.png','assets/brand-compact.png','assets/brand-face.png','assets/selection.png','assets/launch.png'}:issues.append((name,'unapproved image asset'))
    continue
   try:text=p.read_text()
   except UnicodeError:issues.append((name,'unexpected binary'));continue

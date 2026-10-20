@@ -1,6 +1,5 @@
+build/
 dist/
-ui.h
-panel/icon.h
 __pycache__/
 *.pyc
 .DS_Store
@@ -21,7 +20,7 @@ docs/development-history.md
 # Private development artifacts and copyrighted game test data
 *.bin
 *.png
-!panel/icon0.png
+!assets/icon0.png
 tests/*.json
 tests/*analysis*
 tests/*stdout*
@@ -63,7 +62,6 @@ config.local.*
 *.core
 !tests/test_http_policy.c
 
-assets.h
 !assets/brand-compact.png
 !assets/brand-face.png
 !assets/selection.png

@@ -3,7 +3,7 @@
 static int fixture_deny_allocation;
 static void *fixture_calloc(size_t n,size_t size){return fixture_deny_allocation?NULL:calloc(n,size);}
 #define calloc fixture_calloc
-#include "../extract_reader.c"
+#include "../src/extract_reader.c"
 #undef calloc
 #include <assert.h>
 static int mem_read(stream *s,uint64_t at,void *out,size_t n){memcpy(out,(uint8_t*)s->ctx+at,n);return 0;}

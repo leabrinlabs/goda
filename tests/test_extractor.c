@@ -1,7 +1,7 @@
 /* Mock-package integration tests: new temporary fixture files only. */
-#include "../extractor.h"
-#include "../extract_reader.h"
-#include "../catalog.h"
+#include "../src/extractor.h"
+#include "../src/extract_reader.h"
+#include "../src/catalog.h"
 #include <assert.h>
 #include <stdio.h>
 #include <stdlib.h>

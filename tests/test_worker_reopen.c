@@ -5,7 +5,7 @@
 void fl_browser_restore_after_failure(void);
 void fl_browser_begin_request(void);
 #define main unused_loader_server_main
-#include "../main.c"
+#include "../src/main.c"
 #undef main
 #include <assert.h>
 static int next_launch_result,launch_calls,reopen_calls,navigation_calls;

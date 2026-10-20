@@ -1,4 +1,4 @@
-#include "../module_alias.h"
+#include "../src/module_alias.h"
 #include <assert.h>
 #include <stdio.h>
 #include <stdlib.h>

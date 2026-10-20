@@ -1,4 +1,4 @@
-#include "../launch_observation.h"
+#include "../src/launch_observation.h"
 #include <assert.h>
 #include <stdio.h>
 int main(void){struct fl_launch_observation s={0};for(int i=0;i<30;i++)assert(!fl_observe_launch(&s,1,101));

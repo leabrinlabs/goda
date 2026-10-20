@@ -2,7 +2,7 @@
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import vm from 'node:vm';
-const html=readFileSync(new URL('../ui.html',import.meta.url),'utf8');
+const html=readFileSync(new URL('../web/ui.html',import.meta.url),'utf8');
 const script=html.match(/<script>([\s\S]*?)<\/script>/)[1];
 assert(!html.slice(html.indexOf('<main'),html.indexOf('<section id="library"')).includes('id="status"'));
 assert(html.slice(html.indexOf('<aside'),html.indexOf('</aside>')).includes('id="activity"'));

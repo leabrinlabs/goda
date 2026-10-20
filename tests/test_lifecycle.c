@@ -1,6 +1,6 @@
 /* Exercise the production mount-release routine against a fake mount table. */
 #define FL_LIFECYCLE_TEST
-#include "../lifecycle.c"
+#include "../src/lifecycle.c"
 #include <assert.h>
 static struct statfs table[8];static int mounts,calls,busy,snapshot_race;
 void fl_audit(const char *component,const char *fmt,...){(void)component;(void)fmt;}

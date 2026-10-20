@@ -1,5 +1,5 @@
 /* Exercise the actual native navigation implementation with mocked Sony calls. */
-#include "../browser.c"
+#include "../src/browser.c"
 #include <assert.h>
 #include <stdarg.h>
 #include <string.h>

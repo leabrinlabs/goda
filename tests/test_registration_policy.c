@@ -1,4 +1,4 @@
-#include "../registration_policy.h"
+#include "../src/registration_policy.h"
 #include <assert.h>
 #include <stdio.h>
 int main(void){const char expected[10]="CUSA12345",other[32]="CUSA54321",selected[32]="CUSA12345";struct reg_policy p={0};assert(reg_request(&p,10,expected,selected,1)==EPERM);p.armed=true;assert(reg_request(&p,10,expected,other,1)==EPERM);assert(reg_request(&p,10,expected,selected,0)==EPERM);assert(!reg_request(&p,10,expected,selected,42));assert(reg_request(&p,10,expected,selected,43)==EBUSY);assert(reg_request(&p,11,expected,selected,43)==EPERM);assert(reg_request(&p,11,expected,other,42)==EPERM);assert(!reg_request(&p,11,expected,selected,42));assert(p.reported&&p.success);assert(reg_request(&p,12,expected,selected,42)==EPERM);p.armed=false;assert(reg_request(&p,10,expected,selected,42)==EPERM);puts("PASS exact dynamic title, one-shot ticket, matching thread and report");return 0;}

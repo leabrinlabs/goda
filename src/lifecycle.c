@@ -13,7 +13,7 @@ int fl_lifecycle_track(const char *source,const char *target){(void)source;(void
 void fl_lifecycle_dispatched(void){}
 #else
 #ifdef FL_LIFECYCLE_TEST
-#include "tests/lifecycle_fixture.h"
+#include "../tests/lifecycle_fixture.h"
 #else
 #include "sm_platform.h"
 #endif
